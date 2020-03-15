@@ -1,0 +1,143 @@
+@media screen and (max-width: 1024px) {
+    .main__a:first-child{
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .form{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .headline__h1{
+        font-size: 25px;
+        margin-left: 15px;
+    }
+    .headline__step-block{
+        margin-left: 15px;
+    }
+    .main__a:first-child{
+        margin-left: 20px;
+    }
+    .main__span-tooltip{
+    
+    }
+    .main__span-tooltip:first-of-type::after {
+        font-size: 14px;
+        width: 170px;
+        top: -6px;
+    }
+
+    .main__span-tooltip_3:hover::after{
+       font-size: 14px;
+        width: 170px;
+    }
+    .main__span-tooltip_2:hover::after{
+        font-size: 14px;
+         width: 150px;
+     }
+    .main__input{
+        width: 100%;
+    }
+    .main__input_size{
+        width: 100%;
+    }
+    .main-block__flex-box_colomn{
+        width: 48%;
+    }    
+    .main-block__flex-box_colomn_3{
+        width: 31%;
+    }
+    .main-block__flex-box_3{
+        justify-content: space-between;
+        
+    }
+    .section__button{
+        padding-bottom: 40px;
+    }
+    .footer{
+        margin-top: 40px;
+    }
+}
+@media screen and (max-width: 545px) {
+    .section__headline{
+        height: 170px;
+    }
+    .main__p{
+        font-size: 13px;
+    }
+    .main__h2{
+        font-size: 19px;
+        margin-top: 30px;
+        margin-bottom: 18px;
+    }
+    .block__radio{
+        margin-bottom: 0;
+    }
+    .main-block__flex-box{
+        flex-direction: column;
+    }
+    .main-block__flex-box_colomn{
+        width: 100%;
+    }
+    .main__input{
+        max-width: 768px;
+        width: 100%;
+        
+    }
+    .main__span-tooltip_1::after {
+        content: attr(data-tooltip); /* Выводим текст */
+        position: absolute; /* Абсолютное позиционирование */
+        width: 150px; /* Ширина подсказки */
+        margin: auto;
+        top: 0; left: 0; bottom: 0; right: 0;  /* Положение подсказки */
+        font-weight: 300;
+        background: #6E7782; /* Синий цвет фона */
+        color: #fff; /* Цвет текста */
+        pointer-events: none; /* Подсказка */
+        opacity: 0; /* Подсказка невидима */
+        transition: 1s; /* Время появления подсказки */
+        border-radius: 4px;
+        line-height: 16px;
+        height: 16px;
+        padding: 5px;
+        text-align: center;
+       }
+    .main__span-tooltip_2::after {
+        content: attr(data-tooltip); /* Выводим текст */
+        position: absolute; /* Абсолютное позиционирование */
+        width: 50px; /* Ширина подсказки */
+        margin: auto;
+        top: 0; left: 0; bottom: 0; right: 0;  /* Положение подсказки */
+        font-weight: 300;
+        background: #6E7782; /* Синий цвет фона */
+        color: #fff; /* Цвет текста */
+        pointer-events: none; /* Подсказка */
+        opacity: 0; /* Подсказка невидима */
+        transition: 1s; /* Время появления подсказки */
+        border-radius: 4px;
+        line-height: 16px;
+        height: 16px;
+        padding: 5px;
+        text-align: center;
+       }
+    .main__span-tooltip_3::after {
+        content: attr(data-tooltip); /* Выводим текст */
+        position: absolute; /* Абсолютное позиционирование */
+        width: 10px; /* Ширина подсказки */
+        font-weight: 300;
+        margin: auto;
+        top: 0; left: 0; bottom: 0; right: 0;  /* Положение подсказки */
+        background: #6E7782; /* Синий цвет фона */
+        color: #fff; /* Цвет текста */
+        padding: 0.2em; /* Поля вокруг текста */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+        pointer-events: none; /* Подсказка */
+        opacity: 0; /* Подсказка невидима */
+        transition: 1s; /* Время появления подсказки */
+        border-radius: 4px;
+        line-height: 16px;
+        height: 16px;
+        padding: 5px;
+        text-align: center;
+       }
+}

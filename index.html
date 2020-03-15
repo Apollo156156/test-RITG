@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="media.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900|Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="checkbox.css">
+    <link rel="stylesheet" href="radio.css">
+    <link rel="stylesheet" href="select-skin.css">
+   
+    <title>Document</title>
+</head>
+<body class="body">
+    <header class="header"></header>
+
+    <main class="main">
+        <section class="section__link">
+            <a class="main__a main__a_color" href="#" active>Страница 1</a>
+            <a class="main__a" href="#">Страница 2</a>
+        </section>
+
+        <section class="section__frame">
+            <section class="section__headline">
+                <div class="headline__block">
+                    <h1 class="headline__h1">Заполните данные о ИП/юридическом лице</h1>
+                    <div class="headline__step-block">
+                        <span class="headline__span-arrow"></span>
+                        <p class="headline__p">Шаг 2 <span class="headline__span">из 4</span></p>
+                    </div>
+                </div>
+            </section>
+            <form action="input.php" class="form" method="POST">
+                
+                <div class="main-block">              
+                    <section class="section__data-ip">
+                        <h2 class="main__h2">Данные о ИП/юридическом лице</h2>
+                        <p class="main__p"> Укажите ИНН или название ИП/юридического лица, и большинство полей будут автоматически заполнены. Проверьте, пожалуйста, корректность указанных данных</p>
+                        <div class="main-block__flex-box">
+                            <div class="main-block__flex-box_colomn">
+                                <label class="main__label" for="">
+                                    <p>ИНН</p> 
+                                    <input type="text" class="main__input" minlength="10" maxlength="12"  value="98765432109" oninput="this.value = this.value.replace(/[^-\d]/, '');" required>
+                                </label>
+                            </div>
+                            <div class="main-block__flex-box_colomn">
+                                <label class="main__label" for="">
+                                    <p>ОГРН/ОГРНИП</p> 
+                                    <input  type="text" class="main__input"  maxlength="13" placeholder="00000000000"  oninput="this.value = this.value.replace(/[^-\d]/, '');" required>
+                                </label>
+                            </div>
+                        </div>
+                        <label class="main__label" for="">
+                            <p>Полное наименование ИП/юридического лица</p> 
+                            <input type="text" class="main__input main__input_size" value="Общество с ограниченной ответственностью Поехали" required>
+                        </label>
+                    </section>
+
+                    <section class="section__requisites">
+                        <h2 class="main__h2">Реквизиты расчетного счета</h2>
+                        <p class="main__p"> Укажите реквизиты расчетного счета ИП/юридического лица, на который банк будет зачислять денежные средства в рамках торгового эквайринга</p>
+                        <div class="main-block__flex-box">
+                            <div class="main-block__flex-box_colomn">
+                                <label class="main__label" for="">
+                                    <p>Наименование банка</p> 
+                                    <input type="text" placeholder="Укажите название банка" class="main__input" oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-Я0-9_]/,'')"required>
+                                </label>
+                            </div>
+                            <div class="main-block__flex-box_colomn">
+                                <label class="main__label" for="">
+                                    <p>БИК банка</p> 
+                                    <input  type="text" placeholder="000000000" minlength="12" maxlength="12"  class="main__input" oninput="this.value = this.value.replace(/[^-\d]/, '');" required>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="main-block__flex-box">
+                            <div class="main-block__flex-box_colomn">
+                                <label class="main__label" for="">
+                                    <p>Расчётный счёт <span class="main__span-tooltip_1" data-tooltip="20-ти значный номер"><img class="main__tooltip" src="img/tooltip.png" alt="Подсказка"></span></p> 
+                                    <input type="text" maxlength="20" placeholder="45400000000000000001" class="main__input" required>
+                                </label>
+                            </div>
+                            <div class="main-block__flex-box_colomn">
+                                <label class="main__label" for="">
+                                    <p>Корреспонденский счёт</p> 
+                                    <input  type="text"  class="main__input" maxlength="20" placeholder="45400000000000000001" required>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section__legal-address">
+                        <h2 class="main__h2">Юридический адрес ИП/юридического лица</h2>
+                        <label  class="main__label" class="main__label" for="">
+                            <input id="legal-address" type="text" placeholder="Индекс, регион, город, улица, дом, корпус/строение, офис/квартира" class="main__input main__input_size" required>
+                        </label>
+                        <div class="main-block__flex-box flex-box_margin" onclick="copy_address()">  
+                            <input id="check-adress" type="checkbox">
+                            <label  for="check-adress" >
+                                <p class="main__p checkbox__text" >Совпадает с фактическим адресом</p> 
+                            </label>
+                        </div>
+                    </section>
+
+                    <section class="section__actual-address">
+                        <h2 class="main__h2">Фактический адрес ИП/юридического лица</h2>
+                        <label  class="main__label" for="">
+                            <input id="actual-address" type="text" placeholder="Индекс, регион, город, улица, дом, корпус/строение, офис/квартира" class="main__input main__input_size" required> 
+                        </label>
+                    </section>
+
+                    <section class="section__license">
+                        <h2 class="main__h2">Сведения о лицензии</h2>
+                        <div class="main-block__flex-box margin-bottom_24 flex-box_margin" onclick="show_license()">  
+                            <input id="check-license" type="checkbox" class="" >
+                            <label  for="check-license" >
+                                <p class="main__p checkbox__text" >Деятельность подлежит лицензированию</p> 
+                            </label>
+                        </div>
+                        <div class="section__license_display">
+                            <label class="main__label" for="">
+                                <p>Вид лицензии</p> 
+                                <input type="text" class="main__input main__input_size" placeholder="Введите вид лицензии" required>
+                            </label>
+                            <div class="main-block__flex-box">
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Номер лицензии</p> 
+                                        <input type="text" placeholder="000000000000000" class="main__input" maxlength="15" oninput="this.value = this.value.replace(/[^-\d+]/, '');" required>
+                                    </label>
+                                </div>
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Кем выдана</p> 
+                                        <input  type="text" placeholder="Организация, выдавшая лицензию"  class="main__input"  required>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="main-block__flex-box ">
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Дата выдачи</p>
+                                        <input type="date" max="2099-12-31" value="2018-12-14" class="main__input main__input_img main__input_color" required>
+                                    </label>
+                                </div>
+                                <div class="date-license">
+                                    <label class="main__label" for="">
+                                        <p>Срок действия</p>
+                                        <input  type="date" max="2099-12-31" value="2018-12-14"  class="main__input main__input_img main__input_color" required>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="main-block__flex-box margin-bottom_24" onclick="show_unlim_license()">  
+                                <input id="check-unlim-license" type="checkbox" class="" >
+                                <label  for="check-unlim-license" >
+                                    <p class="main__p checkbox__text" >Бессрочная лицензия</p> 
+                                </label>
+                            </div>
+                            <label class="main__label" for="">
+                                <p>Перечень видов лицензируемой деятельности</p>
+                                 <input type="text" class="main__input main__input_size" placeholder="Перечислите виды деятельности, подлежащие лицензированию" required>
+                            </label>
+                        </div>
+                    </section>
+
+                    <section class="section__egryul">
+                        <h2 class="main__h2">Данные о внесении в ЕГРЮЛ/ИП <span class="main__span-tooltip_2" data-tooltip="lorem ipsum"><img  src="img/tooltip.png" alt="Подсказка"></span></h2>
+
+                        <div class="main-block__flex-box">
+                            <div class="main-block__flex-box_colomn">
+                                <label class="main__label" for="">
+                                    <p>Номер свидетельства о внесении</p>  
+                                    <input type="text" placeholder="00000000000000000" maxlength="13" class="main__input" oninput="this.value = this.value.replace(/[^-\d]/, '');" required>
+                                </label>
+                            </div>
+                            <div class="main-block__flex-box_colomn">
+                                <label class="main__label" for="">
+                                    <p>Дата внесенияа</p> 
+                                    <input  type="date" class="main__input main__input_img" max="2099-12-31" onfocus='(this.style.color=("#202D3D"))'  required>
+                                </label>
+                            </div>
+                        </div>
+                        <label class="main__label" for="">
+                            <p>Государственный орган, осуществивший внесение</p> 
+                            <input type="text" class="main__input main__input_size" placeholder="Наименование государственного органа" required>
+                        </label>
+                    </section>
+
+                    <section class="section__date-manager">
+                        <section class="date-manager_section-basic">
+                            <h2 class="main__h2">Данные о руководителе <span class="main__span-tooltip_3" data-tooltip="lorem ipsum"><img src="img/tooltip.png" alt="Подсказка"></span></h2>
+                            <label class="main__label" for="">
+                                <p>Фамилия, имя и отчество</p> 
+                                <input type="text" class="main__input main__input_size" placeholder="Иванов Иван Иванович" required>
+                            </label>
+                            <div class="main-block__flex-box">
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Контактный телефон руководителя</p> 
+                                        <input type="tel" value="+7"  maxlength="12" class="main__input" oninput="this.value = this.value.replace(/[^-\d] +/, '');" required>
+                                    </label>
+                                </div>
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Контактный e-mail руководителя</p> 
+                                        <input  type="email" placeholder="mail@mtsbank.ru"  class="main__input" required>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="main-block__flex-box ">
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Должность</p>
+                                        <input type="text" placeholder="Укажите занимаемую должность" class="main__input" oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-Я0-9_+\s]/,'')" required>
+                                    </label>
+                                </div>
+                                <div class="date-license main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Дата рождения</p>
+                                        <input  type="date" max="2020-12-31"  class="main__input main__input_img" onfocus='(this.style.color=("#202D3D"))'   required>
+                                    </label>
+                                </div>
+                            </div>
+                            <label class="main__label" for="">
+                                <p>Место рождения</p> 
+                                <input type="text" class="main__input main__input_size" placeholder="Как в документе, удостоверяющем личность" required>
+                            </label>
+                            <label class="main__label main__label_margin-bottom" for="">Гражданство РФ</label>
+                            <div class="block__radio">
+                                <label for="radioYes" onclick="citizenshipRF_yes()">
+                                    <input class="main__radio" id="radioYes" name="radio_citizenship" type="radio" checked> 
+                                    <span class="radio__text">Да</span>
+                                </label>
+                                <label for="radioNo" onclick="citizenshipRF_no()">
+                                    <input class="main__radio" id="radioNo" name="radio_citizenship" type="radio"> 
+                                    <span class="radio__text">Нет</span>
+                                </label>
+                            </div>
+                        </section>
+
+                        <section class="date-manager__section-country">
+                            <label class="main__label select-label" for="">Страна гражданства </label>
+                            <select class="main__select-appearance main__input main__input_size" onfocus='(this.style.color=("#202D3D"))'>
+                                <option class="main__option" selected disabled>Выберите страну</option>
+                                <option value="1" >England</option>
+                                <option value="2">Germany</option>
+                                <option value="3">France</option>
+                                <option value="4">Lorem ipsum</option>
+                                <option value="5">Lorem ipsum</option>
+                                <option value="6">Lorem ipsum</option>
+                                <option value="7">Lorem ipsum</option>
+                                <option value="8">Lorem ipsum</option>
+                                <option value="9">Lorem ipsum</option>
+                                <option value="10">Lorem ipsum</option>
+                                <option value="11">Lorem ipsum</option>
+                                <option value="12">Lorem ipsum</option>
+                                <option value="13">Lorem ipsum</option>
+                            </select>
+                        </section>
+
+                        <section class="date-manager__section-identity-card">
+                            <h2 class="main__h2">Документ, удостоверяющий личность </h2>
+                            <div class="main-block__flex-box ">
+                                <div class="main-block__flex-box_colomn main-block__flex-box_colomn_3">
+                                    <label class="main__label main__label-row" for="">
+                                        <p>Серия</p>  
+                                        <input type="text" placeholder="0000" maxlength="4" class="main__input main__input_3" oninput="this.value=this.value.replace(/[^0-9]/,'')" required>
+                                    </label>
+                                </div>
+                                <div class="main-block__flex-box_colomn main-block__flex-box_colomn_3">
+                                    <label class="main__label main__label-row" for="">
+                                        <p>Номер</p> 
+                                        <input  type="text" placeholder="000000" minlength="6" maxlength="6"  class="main__input main__input_3" oninput="this.value = this.value.replace(/[^0-9]/,'')" required>
+                                    </label>
+                                </div>
+                                <div class="main-block__flex-box_colomn main-block__flex-box_colomn_3">
+                                    <label class="main__label main__label-row" for="">
+                                        <p>Дата выдачи</p> 
+                                        <input  type="date"  class="main__input main__input_img main__input_3" onfocus='(this.style.color=("#202D3D"))' oninput="this.value = this.value.replace(/[^-\d]/, '');" required>
+                                    </label>
+                                </div>
+                            </div>
+                            <label class="main__label" for="">
+                                <p>Кем выдан</p> 
+                                <input type="text" class="main__input main__input_size" placeholder="Как в документе, удостоверяющем личность" required>
+                            </label>
+                        </section>
+
+                        <section class="date-manager__section-imigration-card">
+                            <h2 class="main__h2">Данные миграционной карты </h2>
+                            <div class="main-block__flex-box">
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Номер</p>
+                                        <input type="text" placeholder="000000000" maxlength="9" class="main__input" oninput="this.value=this.value.replace(/[^0-9]/,'')" required>
+                                    </label>
+                                </div>
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Серия</p> 
+                                        <input  type="text" placeholder="000000000" maxlength="9"  class="main__input" oninput="this.value = this.value.replace(/[^0-9]/,'')" required>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="main-block__flex-box ">
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">
+                                        <p>Дата начала пребывания</p>
+                                        <input type="date"  class="main__input main__input_img" onfocus='(this.style.color=("#202D3D"))' required>
+                                    </label>
+                                </div>
+                                <div class="date-license">
+                                    <label class="main__label" for="">
+                                        <p>Дата окончания срока пребывания</p>
+                                        <input  type="date"   class="main__input main__input_img" onfocus='(this.style.color=("#202D3D"))' required>
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="date-manager__section-visa">
+                            <h2 class="main__h2">Данные визы/разрешения на временное пребывание/вида на жительство </h2>
+                            <div class="main-block__flex-box">
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">Номер  <input type="text" placeholder="000000000" maxlength="9" class="main__input" oninput="this.value=this.value.replace(/[^0-9]/,'')" required></label>
+                                </div>
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">Серия <input  type="text" placeholder="000000000" maxlength="9"  class="main__input" oninput="this.value = this.value.replace(/[^0-9]/,'')" required></label>
+                                </div>
+                            </div>
+                            <div class="main-block__flex-box ">
+                                <div class="main-block__flex-box_colomn">
+                                    <label class="main__label" for="">Дата начала пребывания<input type="date" maxlength="4" max="2018-12-31" class="main__input main__input_img" onfocus='(this.style.color=("#202D3D"))' required></label>
+                                </div>
+                                <div class="date-license">
+                                    <label class="main__label" for="">Дата окончания срока пребывания<input  type="date" maxlength="4"  class="main__input main__input_img" onfocus='(this.style.color=("#202D3D"))'   required></label>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="date-manager__section-public-person">
+                            <h2 class="main__h2">Являетесь ли вы публичным должностным или иностранным публичным должностным лицом? </h2>
+                            <div class="block__radio">
+                            <label for="executiveYes" ><input class="main__radio" id="executiveYes" name="radio_executive" type="radio" > <span class="radio__text">Да</span></label>
+                            <label for="executiveNo" ><input class="main__radio" id="executiveNo" name="radio_executive" type="radio" checked> <span class="radio__text">Нет</span></label>
+                        </div>
+                        </section>
+
+                    </section>
+
+                    <section class="section__button">
+                        <button class="main__button" type="submit">
+                            <p class="main__button-p">Далее</p>
+                            <div class="main__button-triangle"></div>
+                        </button>
+                    </section>
+
+                </div>
+            
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+
+    </footer>
+    <script src="dialog.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
