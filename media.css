@@ -21,19 +21,13 @@
     .main__span-tooltip{
     
     }
-    .main__span-tooltip:first-of-type::after {
-        font-size: 14px;
-        width: 170px;
-        top: -6px;
-    }
+  
 
     .main__span-tooltip_3:hover::after{
        font-size: 14px;
-        width: 170px;
     }
     .main__span-tooltip_2:hover::after{
         font-size: 14px;
-         width: 150px;
      }
     .main__input{
         width: 100%;
@@ -85,17 +79,17 @@
         
     }
     .main__span-tooltip_1::after {
-        content: attr(data-tooltip); /* Выводим текст */
-        position: absolute; /* Абсолютное позиционирование */
-        width: 150px; /* Ширина подсказки */
+        content: attr(data-tooltip); 
+        position: absolute; 
+        width: 150px; 
         margin: auto;
-        top: 0; left: 0; bottom: 0; right: 0;  /* Положение подсказки */
+        top: 0; left: 0; bottom: 0; right: 0;  
         font-weight: 300;
-        background: #6E7782; /* Синий цвет фона */
-        color: #fff; /* Цвет текста */
-        pointer-events: none; /* Подсказка */
-        opacity: 0; /* Подсказка невидима */
-        transition: 1s; /* Время появления подсказки */
+        background: #6E7782; 
+        color: #fff; 
+        pointer-events: none; 
+        opacity: 0; 
+        transition: 1s; 
         border-radius: 4px;
         line-height: 16px;
         height: 16px;
@@ -103,41 +97,71 @@
         text-align: center;
        }
     .main__span-tooltip_2::after {
-        content: attr(data-tooltip); /* Выводим текст */
-        position: absolute; /* Абсолютное позиционирование */
-        width: 50px; /* Ширина подсказки */
-        margin: auto;
-        top: 0; left: 0; bottom: 0; right: 0;  /* Положение подсказки */
+        content: attr(data-tooltip); 
+        position: absolute; 
+        width: 100px; 
+        top: 0; left: 0; bottom: 0; right: 0;  
         font-weight: 300;
-        background: #6E7782; /* Синий цвет фона */
-        color: #fff; /* Цвет текста */
-        pointer-events: none; /* Подсказка */
-        opacity: 0; /* Подсказка невидима */
-        transition: 1s; /* Время появления подсказки */
+        background: #6E7782; 
+        color: #fff;
+        pointer-events: none; 
+        opacity: 0; 
+        transition: 1s; 
+        border-radius: 4px;
+        line-height: 15px;
+        height: 15px;
+        padding: 5px;
+        text-align: center;
+       }
+       .main__span-tooltip_2:hover::after {
+        font-size: 14px;
+        top: 50px;
+        left: -45px;
+    }
+    .main__span-tooltip_3::after {
+        content: attr(data-tooltip);
+        position: absolute; 
+        width: 100px; 
+        font-weight: 300;
+        margin: auto;
+        top: 0;  left: 0; 
+        background: #6E7782; 
+        color: #fff; 
+        padding: 0.2em; 
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+        pointer-events: none; 
+        opacity: 0;
+        transition: 1s; 
         border-radius: 4px;
         line-height: 16px;
         height: 16px;
         padding: 5px;
         text-align: center;
        }
-    .main__span-tooltip_3::after {
-        content: attr(data-tooltip); /* Выводим текст */
-        position: absolute; /* Абсолютное позиционирование */
-        width: 10px; /* Ширина подсказки */
-        font-weight: 300;
+}
+@media screen and (max-width:374px){
+    .main__span-tooltip_1::after {
+        content: attr(data-tooltip); 
+        position: absolute; 
+        width: 150px; 
         margin: auto;
-        top: 0; left: 0; bottom: 0; right: 0;  /* Положение подсказки */
-        background: #6E7782; /* Синий цвет фона */
-        color: #fff; /* Цвет текста */
-        padding: 0.2em; /* Поля вокруг текста */
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
-        pointer-events: none; /* Подсказка */
-        opacity: 0; /* Подсказка невидима */
-        transition: 1s; /* Время появления подсказки */
+        top: 0; left: 0; bottom: 0; right: 0; 
+        font-weight: 300;
+        background: #6E7782;
+        color: #fff; 
+        pointer-events: none; 
+        opacity: 0; 
+        transition: 1s; 
         border-radius: 4px;
         line-height: 16px;
         height: 16px;
         padding: 5px;
         text-align: center;
+       }
+    .main__span-tooltip_2::after {
+      display: none;
+       }
+    .main__span-tooltip_3::after {
+        display: none;
        }
 }
